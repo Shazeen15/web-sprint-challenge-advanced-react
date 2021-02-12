@@ -14,7 +14,6 @@ export default class PlantList extends Component {
     axios
       .get("http://localhost:3333/plants")
       .then((res) => {
-        console.log(res.data.plantsData);
         this.setState({
           plants: res.data.plantsData,
         });
@@ -37,8 +36,18 @@ export default class PlantList extends Component {
               <p>{plant.description}</p>
               <div className="plant-bottom-row">
                 <p>${plant.price}</p>
-                <p>☀️ {plant.light}</p>
-                <p>💦 {plant.watering}x/month</p>
+                <p>
+                  <span role="img" aria-labelledby="sun">
+                    ☀️
+                  </span>{" "}
+                  {plant.light}
+                </p>
+                <p>
+                  <span role="img" aria-labelledby="water">
+                    💦{" "}
+                  </span>{" "}
+                  {plant.watering}x/month
+                </p>
               </div>
               <button
                 className="plant-button"

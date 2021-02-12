@@ -5,7 +5,7 @@ import CheckoutForm from "./CheckoutForm";
 
 // Write up the two tests here and make sure they are testing what the title shows
 
-test("form header renders", () => {
+test("form header renders", async () => {
   // arrange
   render(<CheckoutForm />);
   //   act
@@ -38,7 +38,7 @@ test("form shows success message on submit with form details", () => {
   userEvent.click(button);
 
   //   assert
-  const newFirstNameInput = screen.findByText("shazeen");
+  const newFirstNameInput = await screen.findByText("shazeen");
   newFirstNameInput.then((firstName) => {
     expect(firstName).toBeInTheDocument();
   });
