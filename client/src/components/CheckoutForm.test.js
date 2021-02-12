@@ -41,5 +41,4 @@ test("form shows success message on submit with form details", async () => {
   // const newFirstNameInput = await screen.findByText(/shazeen/i);
   const newFirstNameInput = await screen.findByText("shazeen fabius");
   expect(newFirstNameInput).toBeInTheDocument();
-  console.log(newFirstNameInput);
 });
