@@ -5,7 +5,7 @@ import CheckoutForm from "./CheckoutForm";
 
 // Write up the two tests here and make sure they are testing what the title shows
 
-test("form header renders", async () => {
+test("form header renders", () => {
   // arrange
   render(<CheckoutForm />);
   //   act
@@ -13,7 +13,7 @@ test("form header renders", async () => {
   const formHeader = screen.getByText(/checkout form/i);
 });
 
-test("form shows success message on submit with form details", () => {
+test("form shows success message on submit with form details", async () => {
   // arrange
   render(<CheckoutForm />);
 
@@ -38,8 +38,8 @@ test("form shows success message on submit with form details", () => {
   userEvent.click(button);
 
   //   assert
-  const newFirstNameInput = await screen.findByText("shazeen");
-  newFirstNameInput.then((firstName) => {
-    expect(firstName).toBeInTheDocument();
-  });
+  // const newFirstNameInput = await screen.findByText(/shazeen/i);
+  const newFirstNameInput = await screen.findByText("shazeen fabius");
+  expect(newFirstNameInput).toBeInTheDocument();
+  console.log(newFirstNameInput);
 });
